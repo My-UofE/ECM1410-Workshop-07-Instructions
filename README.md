@@ -36,7 +36,9 @@ The `Circle` class contains methods for calculing area but we can also calculate
 
 $$\text{A = 2 $\times $ base area $+$ circumference $\times$ height}$$
 
-where $$\text{ base area = $\pi r^{2}$} ~~~~\text{ and ~~~~circumference = $2\pi r$} $$
+where 
+
+$$\text{base area = $\pi r^{2}~~~~~~$ and $~~~~~$ circumference = $2\pi r$} $$
 
 
 In the `Cylinder` class override the `getArea()` method i.e.  
