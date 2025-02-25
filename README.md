@@ -169,36 +169,40 @@ public static void printClassInfoStatic(){
 ```
 In the `TestCylinder2.java`, add the following to call the method at the end of the file:
 
-```java
-       System.out.println("\nrunning\nCircle c3 = new Circle();\nc3.printClassInfo();");
-       Circle c3 = new Circle();
-       c3.printClassInfo();
-       
-       System.out.println("\nrunning\nCylinder cy4 = new Cylinder();\ncy4.printClassInfo();");
-       Cylinder cy4 = new Cylinder();
-       cy4.printClassInfo();
-       
-       System.out.println("\nrunning\nCircle cy5 = new Cylinder();\ncy5.printClassInfo();");
-       Circle cy5 = new Cylinder(); // upcasting
-       cy5.printClassInfo();
-       
-       System.out.println("\nrunning\nCircle.printClassInfoStatic();");
-       Circle.printClassInfoStatic();
-       
-       System.out.println("\nrunning\nCylinder.printClassInfoStatic();");
-       Cylinder.printClassInfoStatic();
+```java    
+    System.out.println("\nrunning\nCircle c3 = new Circle();\nc3.printClassInfo();");
+    Circle c3 = new Circle();
+    c3.printClassInfo();
+    
+    System.out.println("\nrunning\nCylinder cy4 = new Cylinder();\ncy4.printClassInfo();");
+    Cylinder cy4 = new Cylinder();
+    cy4.printClassInfo();
+    
+    System.out.println("\nrunning\nCircle cy5 = new Cylinder();\ncy5.printClassInfo();");
+    Circle cy5 = new Cylinder(); // upcasting
+    cy5.printClassInfo();
+    
+    // this will give a compiler warning; but can compile and run
+    System.out.println("\nrunning\ncy4.printClassInfoStatic();");
+    cy4.printClassInfoStatic();
+
+    // this will give a compiler warning; but can compile and run
+    System.out.println("\nrunning\ncy5.printClassInfoStatic();");
+    cy5.printClassInfoStatic();
 ```
 
- Explore the results, and ask if you do not understans something.
+ Explore the results, and ask if you do not understand one of the results.
 <details>
   <summary><strong>Answer.</strong> (expand to view)</summary><br>
 
-
-Here we can see that unlike instance methods **static methods are not overriden**
-
-(If you are not sure, try to add the annotation `@Override` before the Cylinder’s printClassInfo() method, see what the compiler says).
-
 Static methods are early binded, i.e., the linking a method call to its body can be determined at compile time
+
+Here we can see that unlike instance methods **static methods are not overriden** and evaluated based on the actual referenced object class.
+(i.e. when `Cylinder` is upcasted as `Circle` the instance methods will be late binded and use the `Cylinder` class,
+but the static methods will use early binding and use the `Circle` class).
+
+(If you want to see what happens try to add the annotation `@Override` before the Cylinder’s printClassInfo() method, see what the compiler says).
+
 </details><br>
 
 #### Access modifier
