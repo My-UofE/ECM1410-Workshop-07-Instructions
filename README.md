@@ -203,13 +203,13 @@ In the `TestCylinder2.java`, add the following to call the method at the end of 
 <details>
   <summary><strong>Answer.</strong> (expand to view)</summary><br>
 
-Static methods are early binded, i.e., the linking a method call to its body can be determined at compile time
+Static methods are early binded, i.e. the determination of which method will be called is determined at compile time, and here as we cast cy1 as `Circle` the compiler links the `Circle.printClassInfoStatic()` method.
 
-Here we can see that unlike instance methods **static methods are not overriden** and evaluated based on the actual referenced object class.
-(i.e. when `Cylinder` is upcasted as `Circle` the instance methods will be late binded and use the `Cylinder` class,
-but the static methods will use early binding and use the `Circle` class).
+This differs from instance methods which can use dynamic binding so that an instance of a subclass, where the determination of which method will be called is determined at runtime, and even if we cast `Cylinder` cy1 as `Circle` the compiler will link the objects overidden method i.e. in this case call the `Cylinder.getArea()` method.
 
-(If you want to see what happens try to add the annotation `@Override` before the Cylinder’s printClassInfo() method, see what the compiler says).
+Unlike instance methods **in an inherited class  the static methods cannot be overriden**.
+
+(If you want to see what happens try to add the annotation `@Override` before the `Cylinder` `printClassInfoStatic()` method, see what the compiler says).
 
 </details><br>
 
