@@ -8,6 +8,8 @@ Note. This example was adapted from the page: https://www.ntu.edu.sg/home/ehchua
 
 To efficiently code a `Cylinder` class we might set up the class to extend an already existing `Circle` class so we can make use of the attributes and methods for storing the attributes of the circular cylinder base.
 
+<img src="./OOP_Circle_Cylinder.png"> </img>
+
 The `Circle` class is already created for you in file `Circle.java` and an incompleted version of `Cylinder.java` is also present.
 
 Open `Cylinder.java` and complete the tasks 1-5 as described in the comments file to complete the class definition.
@@ -174,7 +176,9 @@ Let’s give a complete implementation of all three classes to enhance your unde
 
 **TASK 2.1 Create the abstract `Shape` class**
 
-Create an abstract class Shape, as shown in the folowing figure which contains two abstract methods, `area()` and `perimeter()`.
+Create an abstract class Shape, as shown in the figure which contains two abstract methods, `area()` and `perimeter()`.
+
+<img src="./OOP_Polymorphism_Shape.png"> </img>
 
 These cannot yet be coded since they depend on what kind of shape is being created.(i.e. in this case which subclass).
 
