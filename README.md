@@ -14,8 +14,8 @@ The `Circle` class is already created for you in file `Circle.java` and an incom
 
 Open `Cylinder.java` and complete the tasks 1-5 as described in the comments file to complete the class definition.
 
-Hint. 
-
+<details>
+  <summary><strong>Hint.</strong> (expand to view)</summary><br>
 An example of one of the `Cylinder` constructors can be seen below:
 
 ```java
@@ -25,6 +25,10 @@ public Cylinder(double height, double radius, String color) {
     this.height = height;
 }
 ```
+</details><br>
+
+
+
 
 When completed compile and run `TestCylinder1.java` to test your classes.
 
@@ -50,12 +54,17 @@ In the `Cylinder` class override the `getArea()` method i.e.
    ...
    }
 ```
-
-Note to be able to find the base of the cylinder we can use code like the following to call the method from the superclass:
+<details>
+  <summary><strong>Hint.</strong> (expand to view)</summary><br>
+To be able to find the base of the cylinder we can use code like the following to call the method from the superclass:
 
 ```java
 double baseArea = super.getArea();
 ```
+
+</details><br>
+
+
 
 Compile and run the code.
 
@@ -142,6 +151,20 @@ cy4.printClassInfo();
 
 Re-compile the code and run it, see which method the compiler invokes. Is it early binding or late binding?
 
+<details>
+  <summary><strong>Answer.</strong> (expand to view)</summary><br>
+
+You will see when the variable (e.g. `cy3`) stores a `Cylinder` reference type, it calls the `printClassInfo()` method from the `Cylinder` class.
+
+When the variable (e.g. `cy4`) stores a `Circle` reference type, it calls the `printClassInfo()` method from the `Circle` class.
+
+Here we can see that unlike instance methods **static methods are not overriden**
+
+(If you are not sure, try to add the annotation `@Override` before the Cylinder’s printClassInfo() method, see what the compiler says).
+
+Static methods are early binded, i.e., the linking a method call to its body can be determined at compile time
+</details><br>
+
 #### Access modifier
 Currently both `getArea()` methods in the `Circle` superclass and `Cylinder` subclass are set to have `public` accessibility. 
 
@@ -151,8 +174,10 @@ Try it yourself to see what the compiler says.
 
 (After experimenting change the `Cylinder` `getArea()` method back to be `public`)
 
+<details>
+  <summary><strong>Answer.</strong> (expand to view)</summary><br>
 You should find the access modifier for an overriding method in the subclass can allow the same or more, but not less, access than the overridden method.
-
+</details>
 
 
 #### Constructors
@@ -198,8 +223,9 @@ The area of a triangle given the lengths of each side ($a$ $b$ and $c$)can be fo
 
 $$\text{area} = \sqrt{s(s-a)(s-b)(s-c)}$$
 
-where 
-$$s = \frac{a + b+c}{2}$$
+where:
+
+$$s = \frac{a + b + c}{2}$$
 
 **TASK 2.3 Overriding `toString()` and `equals()`**
 
@@ -263,19 +289,30 @@ Compile all the files, and run them. Verify that the output areas and perimeters
 
 **1.** Check what happends when you comment out the two overriding methods `toString()` and `equals()` in your Rectangle class. 
 
+<details>
+  <summary><strong>Answer.</strong> (expand to view)</summary><br>
+The code still compiles. 
+
+This is because the default method implementations for `equals()` and `toString()` exist
+in the  `Object` which all java objects inherit, and your rectangle class will make use of those.
+</details><br>
+
 **2.** Add one more shape as follows and recompile the code - what do you find?
 
 ```
 Shape s5 = new Shape("black");
 ```
 
-**Once you have explored the results, reset your code (uncomment the Rectangle methods, and remove the line that tries to create the `Shape s5` object).**
+<details>
+  <summary><strong>Answer.</strong> (expand to view)</summary><br>
+The code will not compile. This is because `Shape` is an abstract class. 
+Abstract classes are not allowed to be instantiated, since there are 
+methods which have no implementation.
+</details><br>
 
-Hints 1.
+*Once you have explored the results, reset your code
+ (uncomment the `Rectangle` methods, and remove the line that attempts
+  to create the `Shape s5` object so that your file will compile).*
 
-This is because that if not overriding these two methods, the Rectangle class inherits them from the Object class. See what the output is if using the inherited methods.
 
-Hints 2.
-
-Because the Shape class is an abstract class. Abstract classes are not allowed to be instantiated, since there are methods which have no imple- mentation.
 
