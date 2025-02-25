@@ -33,7 +33,7 @@ public Cylinder(double height, double radius, String color) {
 
 
 
-When completed compile and run `TestCylinder1.java` to test your classes.
+When all 5 tasks are completed you should be able to compile and run `TestCylinder1.java` to test your classes.
 
 **NOTE** It is important to note that a subclass is not a subset of a superclass. In fact a subclass is a *superset* of the superclass. This is because a subclass inherits all the variables and methods of the superclass, and in addition extends the superclass by providing more variables and methods.
 
