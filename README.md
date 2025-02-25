@@ -130,46 +130,69 @@ double v = ((Cylinder)cy2).getVolume();
 
 
 
-#### Static methods, early binding
+#### Methods and binding
 
-Add a static method `printClassInfo()` in both the superclass and the subclass as follows.
+When we override instance methods, java will use late binding, this means that the program will use the appropriate method at runtime based on the type of an object.
+
+Static methods can not overridden and use early binding. In the example below we will see that
+this means that the program will use the static method of the superclass even if it is redefined in a subclass.
+
+Let's add additional methods to print the class info. We will make both instance methods and static methods: 
+
+In `Circle.java`
 
 ```java
-public static void printClassInfo(){
-  //put it in Circle class
+// instance method
+public void printClassInfo(){
+  System.out.println("It is a Circle class");
+}
+
+// static method
+public static void printClassInfoStatic(){
   System.out.println("It is a Circle class");
 }
 ```
 
+
+In `Cylinder.java`
+
 ```java
-public static void printClassInfo(){
-  //put it in Cylinder class
+// instance method
+public void printClassInfo(){
+  System.out.println("It is a Cylinder class");
+}
+
+// static method
+public static void printClassInfoStatic(){
   System.out.println("It is a Cylinder class");
 }
 ```
-
 In the `TestCylinder2.java`, add the following to call the method at the end of the file:
 
 ```java
-Cylinder cy3 = new Cylinder(3.0,4.0,"green");
-cy3.printClassInfo();
+       System.out.println("\nrunning\nCircle c3 = new Circle();\nc3.printClassInfo();");
+       Circle c3 = new Circle();
+       c3.printClassInfo();
+       
+       System.out.println("\nrunning\nCylinder cy4 = new Cylinder();\ncy4.printClassInfo();");
+       Cylinder cy4 = new Cylinder();
+       cy4.printClassInfo();
+       
+       System.out.println("\nrunning\nCircle cy5 = new Cylinder();\ncy5.printClassInfo();");
+       Circle cy5 = new Cylinder(); // upcasting
+       cy5.printClassInfo();
+       
+       System.out.println("\nrunning\nCircle.printClassInfoStatic();");
+       Circle.printClassInfoStatic();
+       
+       System.out.println("\nrunning\nCylinder.printClassInfoStatic();");
+       Cylinder.printClassInfoStatic();
 ```
 
-What happens when you declare an object using upcasting? Add the following below your existing code and check the output.
-
-```java
-Circle cy4 = new Cylinder(3.0,4.0,"green");//upcasting
-cy4.printClassInfo();
-```
-
-Re-compile the code and run it, see which method the compiler invokes. Is it early binding or late binding?
-
+ Explore the results, and ask if you do not understans something.
 <details>
   <summary><strong>Answer.</strong> (expand to view)</summary><br>
 
-You will see when the variable (e.g. `cy3`) stores a `Cylinder` reference type, it calls the `printClassInfo()` method from the `Cylinder` class.
-
-When the variable (e.g. `cy4`) stores a `Circle` reference type, it calls the `printClassInfo()` method from the `Circle` class.
 
 Here we can see that unlike instance methods **static methods are not overriden**
 
