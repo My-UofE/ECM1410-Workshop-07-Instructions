@@ -16,7 +16,10 @@ Open `Cylinder.java` and complete the tasks 1-5 as described in the comments fil
 
 <details>
   <summary><strong>Hint.</strong> (expand to view)</summary><br>
-An example of one of the `Cylinder` constructors can be seen below:
+
+  An example of the 3-arg `Cylinder` constructor can be seen below. Note how we use the appropriate `super()` method to call the `Circle` constructor.
+
+  To complete the task you will also need to complete the no-arg, 1-arg and 2-arg constructors.
 
 ```java
 // 3-arg constructor
