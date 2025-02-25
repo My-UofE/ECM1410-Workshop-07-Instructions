@@ -76,18 +76,23 @@ double baseArea = ...
 System.out.printf("Surface Area: %.2f, Base Area: %.2f\n", surfaceArea, baseArea);
 ```
 
-Note you will find that java will **not** allow you to use a command like:
+You might expect that the following would allow you to upcast the `Cylinder` and call the superclass `getArea()` method. 
 
 ```java
 double baseArea = ((Circle)cy1).getArea();
 ```
 
+However although this command will compile, when the code runs it will be the `Cylinder.getArea()` that is called.
+
 This is for security considerations e.g. see the discussion at: 
 
 https://stackoverflow.com/questions/6896504/java-inheritance-calling-superclass-method
 
-We can only access the superclass methods within the subclass definition. i.e. we can add a method
-`getBaseArea()` within the cylinder class that can call the superclass method using `super.getArea()` 
+This is an example of dynamic or late binding, whereby the actual method that runs will be determined by the object class at runtime, and not
+what it may be identified as at the time of compilation (early or static binding).
+
+Java only allows us to access the superclass methods within the subclass definition. i.e. we can add a method
+`getBaseArea()` within the `Cylinder` class that can call the superclass `Circle.getArea()` method using `super.getArea()` 
 
 Compile and run the `TestCylinder1`.
 
