@@ -56,7 +56,7 @@ In the `Cylinder` class override the `getArea()` method i.e.
 ```
 <details>
   <summary><strong>Hint.</strong> (expand to view)</summary><br>
-To be able to find the base of the cylinder we can use code like the following to call the method from the superclass:
+To be able to find the base of the cylinder we can use code like the following access methods from the superclass from within the subclass definition:
 
 ```java
 double baseArea = super.getArea();
@@ -75,6 +75,19 @@ double surfaceArea = ...
 double baseArea = ...
 System.out.printf("Surface Area: %.2f, Base Area: %.2f\n", surfaceArea, baseArea);
 ```
+
+Note you will find that java will **not** allow you to use a command like:
+
+```java
+double baseArea = ((Circle)cy1).getArea();
+```
+
+This is for security considerations e.g. see the discussion at: 
+
+https://stackoverflow.com/questions/6896504/java-inheritance-calling-superclass-method
+
+We can only access the superclass methods within the subclass definition. i.e. we can add a method
+`getBaseArea()` within the cylinder class that can call the superclass method using `super.getArea()` 
 
 Compile and run the `TestCylinder1`.
 
