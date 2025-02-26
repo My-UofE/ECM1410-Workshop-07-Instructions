@@ -1,5 +1,19 @@
 # Workshop Week 07: Inheritance
 
+##### UPDATE 26th FEB
+
+You can add a test script to your repository by running the following command in your CodeSpace terminal:
+
+```bash
+curl https://raw.githubusercontent.com/My-UofE/ECM1410-Workshop-07-Instructions/refs/heads/main/test_workshop7_v1.sh -o ./tests/test_workshop7_v1.sh
+```
+
+Once present you can run the test from your working directory using the terminal command:
+
+```bash
+bash ./tests/test_workshop7_v1.sh
+```
+
 ## `Circle` and `Cylinder` 
 
 This workshop covers the concept of inheritance. The first example includes two classes: a 2D `Circle` class (defined with `radius` and `color` attributes) and a 3D `Cylinder` class (with `radius` `height` and `color`). 
