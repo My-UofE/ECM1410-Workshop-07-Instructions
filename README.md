@@ -127,7 +127,7 @@ Now let’s do some changes on the code to enhance your understanding of a few c
 
 Compile and run the code in `TestCylinder2.java`.
 
-Now  change the reference type of `cy2` in `CylinderApp.java as` follows:
+Now  change the reference type of `cy2` in `TestCylinder2.java` as follows:
 
 ```java
 Circle cy2 = new Cylinder(5.0, 2.0);
