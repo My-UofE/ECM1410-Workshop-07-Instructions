@@ -5,13 +5,13 @@
 You can add a test script to your repository by running the following command in your CodeSpace terminal:
 
 ```bash
-curl https://raw.githubusercontent.com/My-UofE/ECM1410-Workshop-07-Instructions/refs/heads/main/test_workshop7_v1.sh -o ./tests/test_workshop7_v1.sh
+curl https://raw.githubusercontent.com/My-UofE/ECM1410-Workshop-07-Instructions/refs/heads/main/test_workshop7_v2.sh -o ./tests/test_workshop7_v2.sh
 ```
 
 Once present you can run the test from your working directory using the terminal command:
 
 ```bash
-bash ./tests/test_workshop7_v1.sh
+bash ./tests/test_workshop7_v2.sh
 ```
 
 ## `Circle` and `Cylinder` 
