@@ -35,7 +35,7 @@ EOM
 
 read -r -d '' t03_ShapeApp << EOM
 Rectangle[width=3.00,height=4.00,color=green,area=12.00,perimeter=14.00]
-Triangle[a=3.00,b=4.00,c=5.00,color=green,area=3.00,perimeter=12.00]
+Triangle[a=3.00,b=4.00,c=5.00,color=green,area=6.00,perimeter=12.00]
 true
 false
 EOM
