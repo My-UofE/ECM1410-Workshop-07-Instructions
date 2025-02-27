@@ -40,7 +40,7 @@ true
 false
 EOM
 
-# Iterate over all Java files in the directory
+# Iterate over all Java files in the directory 
 for java_file in *.java; do
     # Compile the Java file
     javac "$java_file"
