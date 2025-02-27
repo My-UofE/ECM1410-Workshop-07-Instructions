@@ -3,7 +3,7 @@
 read -r -d '' t01_TestCylinder1 << EOM
 Class: class Circle, Radius: 2.00, Colour: blue, Area: 12.57
 Class: class Cylinder, Height: 5.00, Radius: 2.00, Colour: red, Area: 87.96, Volume: 62.83
-Surface Area: 87.96, Base Area: 87.96
+Surface Area: 87.96, Base Area: 12.57
 EOM
 
 read -r -d '' t02_TestCylinder2 << EOM
