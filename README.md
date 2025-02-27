@@ -1,6 +1,6 @@
 # Workshop Week 07: Inheritance
 
-##### UPDATE 26th FEB
+##### UPDATE 26th FEB & TEST VERSION/LINK FIXED 27th FEB
 
 You can add a test script to your repository by running the following command in your CodeSpace terminal:
 
