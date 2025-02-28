@@ -1,5 +1,9 @@
 # Workshop Week 07: Inheritance
 
+##### UPDATE 28th FEB
+
+Please use "red" as the default color for the shape constructor when no color argument is specified (i.e. in the no-arg constructor).
+
 ##### UPDATE 26th FEB & TEST VERSION/LINK FIXED 27th FEB
 
 You can add a test script to your repository by running the following command in your CodeSpace terminal:
