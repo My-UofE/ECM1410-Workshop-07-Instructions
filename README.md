@@ -2,7 +2,7 @@
 
 ##### UPDATE 28th FEB
 
-Please use "red" as the default color for the shape constructor when no color argument is specified (i.e. in the no-arg constructor).
+Please use `"red"` as the default color for the shape constructor when no color argument is specified (i.e. in the no-arg constructor).
 
 ##### UPDATE 26th FEB & TEST VERSION/LINK FIXED 27th FEB
 
@@ -272,6 +272,10 @@ Let’s give a complete implementation of all three classes to enhance your unde
 Create an abstract class Shape, as shown in the figure which contains two abstract methods, `area()` and `perimeter()`.
 
 <img src="./OOP_Polymorphism_Shape.png"> </img>
+
+Note, although the methods `area()` and `perimeter()` cannot be coded for the abstract shape, the constructors can.
+
+Although it is not specified in the diagram, please use `"red"` as the default color for the no-arg shape constructor.
 
 These cannot yet be coded since they depend on what kind of shape is being created.(i.e. in this case which subclass).
 
