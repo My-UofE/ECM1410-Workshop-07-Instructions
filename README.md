@@ -305,7 +305,7 @@ In the two subclasses, the two methods (`toString()` and `equals()`) are derived
 The `toString()` method should print out the rectangle/triangle’s basic information, such as side lengths, color, area and perimeter in the following formats:
 
 ```
-Rectangle[height=X.XX,width=X.XX,color=X,area=X.XX,perimeter=X.XX]
+Rectangle[width=X.XX,height=X.XX,color=X,area=X.XX,perimeter=X.XX]
 ```
 
 ```
