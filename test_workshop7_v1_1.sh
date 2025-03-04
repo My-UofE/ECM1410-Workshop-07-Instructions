@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo $PWD
+
 read -r -d '' t01_TestCylinder1 << EOM
 Class: class Circle, Radius: 2.00, Colour: blue, Area: 12.57
 Class: class Cylinder, Height: 5.00, Radius: 2.00, Colour: red, Area: 87.96, Volume: 62.83
@@ -41,53 +43,63 @@ false
 EOM
 
 # Iterate over all Java files in the directory
-for java_file in *.java; do
+java_files="Circle.java Cylinder.java TestCylinder1.java TestCylinder2.java ShapeApp.java"
+for java_file in $java_files; do
     # Compile the Java file
+    echo Compiling $java_file
     javac "$java_file"
 done
 
 java TestCylinder1 > ./tests/t01_TestCylinder1.out
 if [[ $? -eq 0 ]]; then
-    echo "TestCylinder1: COMPILED"
-    TestCylinder1=COMPILED
+    echo "TestCylinder1: RAN"
+    TestCylinder1=RAN
 else
     echo "TestCylinder1: FAILED_TO_RUN"
-    TestCylinder1=FAILED_TO_COMPILE
+    TestCylinder1=FAILED_TO_RUN
 fi
 
 java TestCylinder2 > ./tests/t02_TestCylinder2.out
 if [[ $? -eq 0 ]]; then
-    echo "TestCylinder2: COMPILED"
-    TestCylinder2=COMPILED
+    echo "TestCylinder2: RAN"
+    TestCylinder2=RAN
 else
-    echo "TestCylinder2: FAILED_TO_COMPILE"
-    TestCylinder2=FAILED_TO_COMPILE
+    echo "TestCylinder2: FAILED_TO_RUN"
+    TestCylinder2=FAILED_TO_RUN
 fi
 
 java ShapeApp > ./tests/t03_ShapeApp.out
 if [[ $? -eq 0 ]]; then
-    echo "ShapeApp: COMPILED"
-    TestCylinder2=COMPILED
+    echo "ShapeApp: RAN"
+    ShapeApp=RAN
 else
-    echo "ShapeApp: FAILED_TO_COMPILE"
-    TestCylinder2=FAILED_TO_COMPILE
+    echo "ShapeApp: FAILED_TO_RUN"
+    ShapeApp=FAILED_TO_RUN
 fi
-
+score=0
 for student in ./tests/*.out; do
     ref=$(basename $student)
     ref="${ref%.*}"
     var="$(diff -B -y --suppress-common-lines $student <(echo "${!ref}") | wc -l)"
     if [[ $var -eq 0 ]]; then
         echo ${ref:4}: PASS
+        ((score++))
     else
         echo ${ref:4}: FAIL
-        echo " "
-        echo ... STUDENT FILE DIFFERS FROM EXPECTED OUTPUT....
-        echo ............ EXPECTED OUTPUT: ...................
-        echo "${!ref}"
-        echo .............. YOUR OUTPUT: .....................
-        cat $student
-        echo ................................................
-        echo "  "
+        mkdir -p tmpdir
+        echo "${!ref}" > tmpdir/model_answer.txt
+        cat $student > tmpdir/submitted.txt
+        echo
+        echo ">>> ${ref}: differences - submission code output (green) vs model answer (red)"
+        echo
+        git diff --no-prefix -U1000 --no-index --ignore-space-at-eol   \
+             --ignore-cr-at-eol  --ignore-blank-lines  --color \
+                tmpdir/model_answer.txt tmpdir/submitted.txt | tail -n +6 | sed 's/^/   /'
+        # diff -B -E -Z $student <(echo "${!ref}")
+        echo  
+       echo " "
     fi
 done
+result=${PWD##*/}
+echo SUMMARY user ${result:12} passed ${score} of the 3 provided tests
+
